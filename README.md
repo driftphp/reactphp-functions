@@ -2,6 +2,8 @@
 
 Async locker for [ReactPHP](https://reactphp.org/)
 
+[![CircleCI](https://circleci.com/gh/mmoreram/reactphp-functions.svg?style=svg)](https://circleci.com/gh/mmoreram/reactphp-functions)
+
 **Table of Contents**
 - [Quickstart example](#quickstart-example)
 - [Usage](#usage)
