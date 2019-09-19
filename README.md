@@ -63,7 +63,10 @@ The `sleep($seconds, LoopInterface $loop)` method can be used to sleep for
 $time seconds.
 
 ```php
-React\sleep(1.5, $loop);
+React\sleep(1.5, $loop)
+    ->then(function() {
+        // Do whatever you need after 1.5 seconds
+    });
 ```
 
 It is important to understand all the possible sleep implementations you can use
@@ -85,7 +88,10 @@ The `sleep($seconds, LoopInterface $loop)` method can be used to sleep for
 $time microseconds.
 
 ```php
-React\usleep(3000, $loop);
+React\usleep(3000, $loop)
+    ->then(function() {
+        // Do whatever you need after 3000 microseconds
+    });
 ```
 
 The same rationale than the [`React\sleep`](#sleep) method. This is a
@@ -98,7 +104,10 @@ to guess the mime content type of a file. If failure, then rejects with a
 RuntimeException.
 
 ```php
-React\mime_content_type("/tmp/file.png", $loop);
+React\mime_content_type("/tmp/file.png", $loop)
+    ->then(function(string $type) {
+        // Do whatever you need with the found mime type
+    });
 ```
 
 This is a non-blocking action and equals the regular PHP function

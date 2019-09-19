@@ -28,7 +28,7 @@ class MimeContentTypeTest extends TestCase
     }
 
     /**
-     * @dataProvider dataTestRejections
+     * @dataProvider getFilesWhereShouldReject
      *
      * @param string $filePath
      *
@@ -42,9 +42,9 @@ class MimeContentTypeTest extends TestCase
     }
 
     /**
-     * Data for test Rejections
+     * Get files where should reject
      */
-    public function dataTestRejections()
+    public function getFilesWhereShouldReject()
     {
         return [
             ['nonexisting.txt'],
