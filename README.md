@@ -1,6 +1,7 @@
 # ReactPHP functions
 
-Async locker for [ReactPHP](https://reactphp.org/)
+Set of simple PHP functions turned non-blocking on too of
+[ReactPHP](https://reactphp.org/)
 
 [![CircleCI](https://circleci.com/gh/mmoreram/reactphp-functions.svg?style=svg)](https://circleci.com/gh/mmoreram/reactphp-functions)
 
