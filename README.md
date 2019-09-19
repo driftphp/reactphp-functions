@@ -9,6 +9,7 @@ Async locker for [ReactPHP](https://reactphp.org/)
 - [Usage](#usage)
     - [sleep()](#sleep)
     - [usleep()](#usleep)
+    - [mime_content_type()](#mime_content_type)
 - [Install](#install)
 - [Tests](#tests)
 - [License](#license)
@@ -89,6 +90,19 @@ React\usleep(3000, $loop);
 
 The same rationale than the [`React\sleep`](#sleep) method. This is a
 non-blocking action.
+
+### mime_content_type
+
+The `mime_content_type("/tmp/file.png", LoopInterface $loop)` method can be used
+to guess the mime content type of a file. If failure, then rejects with a
+RuntimeException.
+
+```php
+React\mime_content_type("/tmp/file.png", $loop);
+```
+
+This is a non-blocking action and equals the regular PHP function
+[mime_content_type](https://www.php.net/manual/en/function.mime-content-type.php).
 
 ## Install
 
