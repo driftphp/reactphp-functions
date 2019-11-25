@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Mmoreram\React;
+namespace Drift\React;
 
 use React\ChildProcess\Process;
 use React\EventLoop\LoopInterface;

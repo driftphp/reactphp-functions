@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Mmoreram\React\Tests;
+namespace Drift\React\Tests;
 
 use PHPUnit\Framework\TestCase;
 use React\EventLoop\Factory;
-use Mmoreram\React;
+use Drift\React;
 use Clue\React\Block;
 use RuntimeException;
 use Exception;

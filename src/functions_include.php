@@ -1,8 +1,8 @@
 <?php
 
 
-namespace Mmoreram\React;
+namespace Drift\React;
 
-if (!function_exists('Mmoreram\\React\\sleep')) {
+if (!function_exists('Drift\\React\\sleep')) {
     require __DIR__ . '/functions.php';
 }

@@ -1,8 +1,8 @@
 {
-    "name": "mmoreram/react-functions",
+    "name": "drift/react-functions",
     "description": "Lightweight library that provides regular PHP methods is a non-blocking implementation.",
     "keywords": ["blocking", "await", "sleep", "Event Loop", "Promise", "ReactPHP", "async"],
-    "homepage": "https://github.com/mmoreram/reactphp-functions",
+    "homepage": "https://github.com/driftphp/reactphp-functions",
     "license": "MIT",
     "autoload": {
         "files": [ "src/functions_include.php" ]
@@ -15,7 +15,6 @@
         "react/promise-timer": "^1.5"
     },
     "require-dev": {
-        "phpunit/phpunit": "^7.0",
         "clue/block-react": "^1.3"
     }
 }

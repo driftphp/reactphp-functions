@@ -3,7 +3,7 @@
 Set of simple PHP functions turned non-blocking on too of
 [ReactPHP](https://reactphp.org/)
 
-[![CircleCI](https://circleci.com/gh/mmoreram/reactphp-functions.svg?style=svg)](https://circleci.com/gh/mmoreram/reactphp-functions)
+[![CircleCI](https://circleci.com/gh/driftphp/reactphp-functions.svg?style=svg)](https://circleci.com/gh/driftphp/reactphp-functions)
 
 **Table of Contents**
 - [Quickstart example](#quickstart-example)
@@ -44,7 +44,7 @@ This lightweight library has some small methods with the exact behavior than
 their sibling methods in regular and blocking PHP.
 
 ```php
-use Mmoreram\React;
+use Drift\React;
 
 React\sleep(...);
 ```
@@ -79,7 +79,7 @@ elapsed, continue from the same point
 the loop continue doing cycles. Block the program execution after n seconds, and
 after this time is elapsed, continue from the same point. This is a blocking
 feature.
-- `\Mmoreram\React\sleep($time, $loop)` - Don't block neither the PHP thread nor
+- `\Drift\React\sleep($time, $loop)` - Don't block neither the PHP thread nor
 the program execution. This method returns a Promise that will be resolved after
 n seconds. This is a non-blocking feature.
 
@@ -123,7 +123,7 @@ This project follows [SemVer](https://semver.org/).
 This will install the latest supported version:
 
 ```bash
-$ composer require mmoreram/react-functions:dev-master
+$ composer require driftphp/react-functions:dev-master
 ```
 
 This library requires PHP7.

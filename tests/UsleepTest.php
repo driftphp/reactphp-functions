@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Mmoreram\React\Tests;
+namespace Drift\React\Tests;
 
 use PHPUnit\Framework\TestCase;
 use React\EventLoop\Factory;
 use React\Promise\FulfilledPromise;
-use Mmoreram\React;
+use Drift\React;
 use Clue\React\Block;
 
 /**
