@@ -4,17 +4,26 @@
     "keywords": ["blocking", "await", "sleep", "Event Loop", "Promise", "ReactPHP", "async"],
     "homepage": "https://github.com/driftphp/reactphp-functions",
     "license": "MIT",
-    "autoload": {
-        "files": [ "src/functions_include.php" ]
-    },
+
+    "authors": [
+        {
+            "name": "Marc Morera",
+            "email": "yuhu@mmoreram.com"
+        }
+    ],
+
     "require": {
-    	"php": ">=7.1",
+        "php": "^7.3",
         "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3.5",
         "react/promise": "^2.7 || ^1.2.1",
         "react/child-process": "^0.6",
-        "react/promise-timer": "^1.5"
+        "react/promise-timer": "^1.5",
+        "react/stream": "^1.0"
     },
     "require-dev": {
         "clue/block-react": "^1.3"
+    },
+    "autoload": {
+        "files": [ "src/functions_include.php" ]
     }
 }
