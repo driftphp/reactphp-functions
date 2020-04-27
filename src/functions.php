@@ -3,11 +3,15 @@
 
 namespace Drift\React;
 
+use Evenement\EventEmitterInterface;
 use React\ChildProcess\Process;
 use React\EventLoop\LoopInterface;
+use React\EventLoop\TimerInterface;
 use React\Promise\Deferred;
 use React\Promise\PromiseInterface;
 use React\Promise\Timer;
+use React\Stream\ReadableStreamInterface;
+use function React\Promise\reject;
 
 /**
  * Sleep for n seconds
@@ -74,4 +78,41 @@ function mime_content_type(string $fileName, LoopInterface $loop) : PromiseInter
     return $deferred->promise();
 }
 
+/**
+ * Wait until a number of listeners are aware of stream data.
+ *
+ * @param EventEmitterInterface $stream
+ * @param LoopInterface $loop
+ * @param int $minimumListeners
+ * @param int $timeout
+ *
+ * @return PromiseInterface<ReadableStreamInterface>
+ */
+function wait_for_stream_listeners(
+    EventEmitterInterface $stream,
+    LoopInterface $loop,
+    int $minimumListeners = 1,
+    float $timeout = -1
+) : PromiseInterface
+{
+    if ($minimumListeners < 0) {
+        return reject(new \LogicException('You cannot expect negative amount of listeners in a stream.'));
+    }
 
+    $deferred = new Deferred();
+    $timer = $loop->addPeriodicTimer(0.001, function(TimerInterface $timer) use ($deferred, $stream, $minimumListeners, $loop) {
+        if (count($stream->listeners('data')) >= $minimumListeners) {
+            $loop->cancelTimer($timer);
+            $deferred->resolve($stream);
+        }
+    });
+
+    if ($timeout>0) {
+        $loop->addTimer($timeout, function() use ($timer, $loop, $deferred, $timeout) {
+            $loop->cancelTimer($timer);
+            $deferred->reject(new \RuntimeException("No listeners attached after $timeout seconds"));
+        });
+    }
+
+    return $deferred->promise();
+}
