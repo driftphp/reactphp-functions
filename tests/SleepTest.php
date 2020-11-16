@@ -5,9 +5,9 @@ namespace Drift\React\Tests;
 
 use PHPUnit\Framework\TestCase;
 use React\EventLoop\Factory;
-use React\Promise\FulfilledPromise;
 use Drift\React;
 use Clue\React\Block;
+use function React\Promise\resolve;
 
 /**
  * Class SleepTest
@@ -19,7 +19,7 @@ class SleepTest extends TestCase
         $loop = Factory::create();
         $elements = [];
 
-        $promiseXZ = (new FulfilledPromise())
+        $promiseXZ = resolve()
             ->then(function() use (&$elements){
                 $elements[] = 'X';
             })
@@ -30,7 +30,7 @@ class SleepTest extends TestCase
                 $elements[] = 'Z';
             });
 
-        $promiseY = (new FulfilledPromise())
+        $promiseY = resolve()
             ->then(function() use ($loop) {
                 return React\sleep(1, $loop);
             })
