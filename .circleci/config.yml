@@ -1,24 +1,5 @@
 version: 2
 jobs:
-  test-php73:
-    docker:
-      - image: circleci/php:7.3-cli
-
-    working_directory: ~/project
-    steps:
-      - checkout
-
-      - run:
-          name: Run tests / Symfony 4^3
-          command: |
-            composer update -n --prefer-dist --prefer-lowest --no-suggest
-            php vendor/bin/phpunit --testsuite=base
-
-      - run:
-          name: Run tests / Symfony 5^0
-          command: |
-            composer update -n --prefer-dist --no-suggest
-            php vendor/bin/phpunit --testsuite=base
 
   test-php74:
     docker:
@@ -29,14 +10,28 @@ jobs:
       - checkout
 
       - run:
-          name: Run tests / Symfony 5^0
+          name: Run tests
           command: |
             composer update -n --prefer-dist --no-suggest
-            php vendor/bin/phpunit --testsuite=base
+            php vendor/bin/phpunit
+
+  test-php80:
+    docker:
+      - image: circleci/php:8.0-cli
+
+    working_directory: ~/project
+    steps:
+      - checkout
+
+      - run:
+          name: Run tests
+          command: |
+            composer update -n --prefer-dist --no-suggest
+            php vendor/bin/phpunit
 
 workflows:
   version: 2
   test:
     jobs:
-      - test-php73
       - test-php74
+      - test-php80
