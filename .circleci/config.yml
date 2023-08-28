@@ -4,7 +4,6 @@ jobs:
   test-php74:
     docker:
       - image: circleci/php:7.4-cli
-
     working_directory: ~/project
     steps:
       - checkout
@@ -18,7 +17,32 @@ jobs:
   test-php80:
     docker:
       - image: circleci/php:8.0-cli
+    working_directory: ~/project
+    steps:
+      - checkout
 
+      - run:
+          name: Run tests
+          command: |
+            composer update -n --prefer-dist --no-suggest
+            php vendor/bin/phpunit
+
+  test-php81:
+    docker:
+      - image: cimg/php:8.1
+    working_directory: ~/project
+    steps:
+      - checkout
+
+      - run:
+          name: Run tests
+          command: |
+            composer update -n --prefer-dist --no-suggest
+            php vendor/bin/phpunit
+
+  test-php82:
+    docker:
+      - image: cimg/php:8.2
     working_directory: ~/project
     steps:
       - checkout
@@ -35,3 +59,5 @@ workflows:
     jobs:
       - test-php74
       - test-php80
+      - test-php81
+      - test-php82

@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Drift\\React\\Tests\\SleepTest::testIt":4},"times":{"Drift\\React\\Tests\\MimeContentTypeTest::testItResolvesWithMimeType":0.048,"Drift\\React\\Tests\\MimeContentTypeTest::testIfRejectsOnFailure with data set #0":0.024,"Drift\\React\\Tests\\MimeContentTypeTest::testIfRejectsOnFailure with data set #1":0.015,"Drift\\React\\Tests\\SleepTest::testIt":0}}

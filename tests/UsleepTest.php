@@ -19,7 +19,7 @@ class UsleepTest extends TestCase
         $loop = Factory::create();
         $elements = [];
 
-        $promiseXZ = resolve()
+        $promiseXZ = resolve(null)
             ->then(function() use (&$elements){
                 $elements[] = 'X';
             })
@@ -30,7 +30,7 @@ class UsleepTest extends TestCase
                 $elements[] = 'Z';
             });
 
-        $promiseY = resolve()
+        $promiseY = resolve(null)
             ->then(function() use ($loop) {
                 return React\usleep(100, $loop);
             })
